@@ -1,24 +1,46 @@
-//HOW DO I ALTER THE PAGE? THAT'S THE QUESTION...
-// use element.onfocus for the input field? --> edit the innerHTML? how does one do that from the script?
-var myArray = ["Hello", "Bonjour", "Gutentag"];
 
-function didThisWork(){
-    console.log("Holla");
-};
+var myArray = ["Hello", "Bonjour", "Gutentag"];
 
 function returnTextInput () {
   var userInput = document.getElementById("textInput").value;
-    document.write(userInput);
+	
+	//convert string to number
+	var n = Number(userInput);
+	
+//	var output = "";
+    var output = [];
+    //if you do [] instead, each iteration of 'phrases' = 1 indicie in the array
+	
+	//html newline character is <br>
+	var phrases = "<br> Hello! Bonjour! Hola! Gutentag! Ni Hao! Shalom "
     
-    console.log("conection functions");
-    console.log(userInput);
+    if (n == NaN || n % 1 != 0) {
+        window.alert("Please enter a number")
+        location.reload()
+    } 
+    else if (n < 0 || n > 10) {
+        window.alert("Please enter a whole number between 0 and 10");
+        location.reload();
+    } 
+
+    
+	//run loop number of times
+	for(i = 0; i < n; i++){
+        if (n < 10){
+		output = output.concat(phrases);
+        }
+        //find way to eleminate the ',' when output is array and not string? asthetic work around was to put break tags at front of each indicie
+	}
+	
+	//change this element
+	document.getElementById('demo').innerHTML = output;
+    console.log(output[0])
+    
 };
-
-
-    function keepStylin () {
-
-        console.log("connection functions");
-    };
+//WHAT ABOUT A "DONE" BUTTON -- refreshes page? (or anAGAIN? button)
+function refresh (){
+    location.reload();
+}
 
 //window.onload = function addMe(){ 
 //    
